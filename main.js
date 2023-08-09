@@ -39,3 +39,49 @@ const obj = {
 const { c1 , ...rest2 } = obj
 
 console.log(c, rest) // 3, { c를 제외한 나머지 속성들 }
+
+
+//선택적 체이닝 (Optional Chaining)
+//주의점 : 남용해선 xx
+const user = {
+
+}
+// user = null, undefined  > 타입에러
+console.log(user.name) //undefined
+
+console.log(user?.name) //undefined (에러대신 undefined만 노출)
+
+const userA = {
+    name: 'Heropy',
+    age :'20',
+    address: {
+        country: 'korea',
+        city: 'Seoul'
+    }
+}
+
+const userB = {
+    name: 'jena',
+    age : '15'
+}
+
+function getCity(user) {
+    return user.address.city
+}
+
+function getCity2(user) {
+    return user.address?.city
+}
+
+function getCity3(user) {
+    return user.address?.city || '주소 없음'
+}
+
+console.log(getCity(userA)) // seoul
+console.log(getCity(userB)) // Error
+
+console.log(getCity2(userA)) // seoul
+console.log(getCity2(userB)) // undefined
+
+console.log(getCity3(userA)) // seoul
+console.log(getCity3(userB)) // 주소 없음
