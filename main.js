@@ -1,5 +1,7 @@
 //Array(배열)
 
+const { functions } = require("lodash")
+
 const fruits = ['Apple', 'Banana', 'Cherry'] // 리터럴 방식으로 데이터를 만듦
 // new Array('Apple', 'Banana', 'Cherry') //생성자 함수 (js에선 클래스)
 
@@ -98,3 +100,39 @@ function getAlert(message) {
 console.log(getAlert('안녕하세여~')) // '안녕하세여~'
 console.log(getAlert('')) // '메세지가 존재하지않습니다.'
 
+
+//전개연산자 (Spread Operator)
+
+const e = [1,2,3]
+console.log(a) // [1,2,3]
+console.log(...a) // 1 2 3
+console.log(1,2,3) // 1 2 3
+
+const f = [4,5,6]
+
+const g = a.concat(b)
+
+console.log(g) //1,2,3,4,5,6
+
+
+const h = [e,f] // [[1,2,3], [4,5,6]]
+const i = [...e, ...f] // [1,2,3,4,5,6]
+
+const a = {x:1, y:2}
+const b = {y:3, z:4}
+
+const cc = Object.assign({}, a, b)
+console.log(cc) // { x:1, y:3, z:4 }
+
+const dd = {...a, ...b}
+console.log(dd) // { x:1, y:3, z:4 }
+
+function fn (x,y,z) {
+    console.log(x,y,z)
+}
+
+fn(1,2,3) // 1 2 3
+
+const aaaa = [1,2,3]
+
+fn(...a) // 1 2 3
