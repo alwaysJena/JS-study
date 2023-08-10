@@ -37,3 +37,16 @@ console.log(price('Apple'))
 console.log(price('Banana'))
 console.log(price('Cherry'))
 console.log(price('Hobak'))
+
+
+
+//For of 반복문
+const fruit = ['Apple', 'Banana', 'Cherry']
+
+// for (let i = 0; i < fruit.length ; i+=1 ) {
+//     console.log(fruit(i))
+// }
+
+for (const a of fruit) {
+    console.log(a) // Apple Banana Cherry
+}
