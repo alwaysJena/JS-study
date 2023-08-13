@@ -111,13 +111,47 @@
 
 /** 나머지 매개변수(Rest parameter) */
 
-function sum(...rest) { //전개연산자
-    console.log(rest)
-    rest.reduce(function(acc, cur){
-        return acc + cur
-    }, 0) // acc의 최초값 
-}
+// function sum(...rest) { //전개연산자
+//     console.log(rest)
+//     rest.reduce(function(acc, cur){
+//         return acc + cur
+//     }, 0) // acc의 최초값 
+// }
 
-console.log(sum(1,2))//3
-console.log(sum(1,2,3,4)) //10
-console.log(sum(1,2,3,4,5,6,7,8,9,10)) //5
+// console.log(sum(1,2))//3
+// console.log(sum(1,2,3,4)) //10
+// console.log(sum(1,2,3,4,5,6,7,8,9,10)) //5
+
+
+
+
+/**화살표 함수(Arrow function) */
+/**이건 함수 표현식이다. 함수 선언이x ,  할당 연산자로 사용해서^^*/
+
+// function sum(){}
+// const sum = function () {}
+
+// const sum = () => {} //ES6 문법
+
+// function sum(a,b) {
+//     return a + b
+// }
+
+//ES6의 장점: 
+// const sum = (a,b) => {
+//     return a + b
+// } 
+//
+
+// const sum = (a,b) => a + b  //return 으로 바로 받을경우 생략가능
+
+// console.log(sum(1,2)) //3
+// console.log(sum(10,20)) //30
+
+const a = () => {}
+const b = x => {} // 매게변수가 하나면 생략도 가능
+const c = (x,y) => x*x 
+const d = () => {return { a: 1}}
+// const e = () => {a:1} X
+const e = () => ({ a: 1 }) //중괄호는 바로사용못하고 소괄호로 묶어줘야함
+const f = () => [ 1,3,4 ] // 소괄호 안해줘도됨
