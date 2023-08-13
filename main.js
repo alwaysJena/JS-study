@@ -148,10 +148,39 @@
 // console.log(sum(1,2)) //3
 // console.log(sum(10,20)) //30
 
-const a = () => {}
-const b = x => {} // 매게변수가 하나면 생략도 가능
-const c = (x,y) => x*x 
-const d = () => {return { a: 1}}
-// const e = () => {a:1} X
-const e = () => ({ a: 1 }) //중괄호는 바로사용못하고 소괄호로 묶어줘야함
-const f = () => [ 1,3,4 ] // 소괄호 안해줘도됨
+// const a = () => {}
+// const b = x => {} // 매게변수가 하나면 생략도 가능
+// const c = (x,y) => x*x 
+// const d = () => {return { a: 1}}
+// // const e = () => {a:1} X
+// const e = () => ({ a: 1 }) //중괄호는 바로사용못하고 소괄호로 묶어줘야함
+// const f = () => [ 1,3,4 ] // 소괄호 안해줘도됨
+
+
+
+/**즉시 실행함수 (IIFE , Immediately-Involked Function Expression) */
+//ex
+const a = 7
+
+const double = () => {
+    console.log(a*2)
+}
+
+double();
+
+//즉시 실행함수
+;(() => {
+    console.log(a*2)
+})()
+
+;(() => {})() //(F)() 화살표함면 패턴 1개
+;(function() {})() //(F)()
+;(function(){}()) //(F()) 
+;!function(){}() // !F()
+;+function(){}() // +F()
+
+
+;((a,b) => {
+    console.log(a)
+    console.log(b)
+})(1,2) // 매게변수로 쓸 수 있다..!!
