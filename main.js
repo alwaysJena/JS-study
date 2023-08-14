@@ -333,15 +333,26 @@ class User {
         this.lastName = last
     }
 
-    getFullName() {
+    get fullName() { //get 은 값을 얻어내는 메소드 (Getter) 메소드를 속성처럼 사용할 수 있다.
         return `${this.firstName} +${this.lastName}`
     }
+
+    set fullName(value) { //값을 지정할떄
+        [this.firstName, this.lastName] = value.split(' ') //배열구조분해할당
+    }
+
+    //속성처럼 값을 조회할땐 get메소드가 실행
+    //할당연산자를 통해 데이터를 할당하게되면 set 메소드가 실행 
+
+    // getFullName() {
+    //     return `${this.firstName} +${this.lastName}`
+    // }
 }
 
-const heropy = new User('Heropy', 'Park')
-const neo = new User('Neo', 'Anderson')
+const heropy = new User('Heropy', 'Park') // 생성자함수
+// const neo = new User('Neo', 'Anderson')
 
-console.log(heropy.getFullName())
-console.log(neo.getFullName())
+// console.log(heropy.getFullName())
+// console.log(neo.getFullName())
 
 
