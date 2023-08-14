@@ -369,78 +369,114 @@
 /**상속(Inheritance) */
 
 //운송수단
-class Vehicle {
-    constructor(acceleration = 1) {
-        this.speed = 0
-        this.acceleration = acceleration
+// class Vehicle {
+//     constructor(acceleration = 1) {
+//         this.speed = 0
+//         this.acceleration = acceleration
+//     }
+
+//     accelerate() {
+//         this.speed += this.acceleration
+//     }
+
+//     decelerate() {
+//         if(this.speed <= 0) {
+//             console.log('정지!')
+
+//             return
+//         }
+//         this.speed -= this.accelerate
+//     }
+// }
+
+
+// //자전거
+// class Bicycle extends Vehicle {
+//     constructor(price = 100 , acceleration) {
+//         super(acceleration)
+//         this.price = price
+//         this.wheel = 2
+//     }
+// }
+
+// const bicycle = new Bicycle(300, 2) // bicycle : 인스턴스
+// bicycle.accelerate()
+// console.log(bicycle)
+// console.log(bicycle instanceof Bicycle) //true
+// console.log(bicycle instanceof Vehicle) //true
+// //instanceof 는 어느쪽에서 상속됐는지 확인c
+
+
+// //자동차
+
+// class Car extends Bicycle {
+//     constructor(license, price, acceleration) {
+//         super(price, acceleration)
+//         this.license = license
+//         this.wheel =4
+//     }
+
+//     //오버라이딩
+//     acceleration() {
+//         if(!this.license) {
+//             console.error('무면허!')
+
+//             return
+//         }
+//         this.speed += this.acceleration
+//         console.log('가속!', this.speed)
+//     }
+// }
+
+// const carA = new Car(true, 7000, 10)
+// const carB = new Car(false, 4000, 6)
+
+// console.log(carA)
+// console.log(carB)
+
+
+// class Boat extends Vehicle {
+//     constructor(price, acceleration) {
+//         super(acceleration)
+//         this.price = price
+//         this.moter = 1
+//     }
+// }
+
+// const boat = new Boat(10000, 5)
+
+class A {
+    constructor() {}
+}
+
+class B extends A {
+    constructor() {
+        super() //상속받을땐 필수
     }
+}
 
-    accelerate() {
-        this.speed += this.acceleration
-    }
-
-    decelerate() {
-        if(this.speed <= 0) {
-            console.log('정지!')
-
-            return
-        }
-        this.speed -= this.accelerate
+class C extends B {
+    constructor() {
+        super()
     }
 }
 
 
-//자전거
-class Bicycle extends Vehicle {
-    constructor(price = 100 , acceleration) {
-        super(acceleration)
-        this.price = price
-        this.wheel = 2
-    }
-}
-
-const bicycle = new Bicycle(300, 2) // bicycle : 인스턴스
-bicycle.accelerate()
-console.log(bicycle)
-console.log(bicycle instanceof Bicycle) //true
-console.log(bicycle instanceof Vehicle) //true
-//instanceof 는 어느쪽에서 상속됐는지 확인c
+const a = new A() //A : 생성자함수, a : 인스턴스
+const b = new B() 
+const c = new C()
 
 
-//자동차
+console.log(a instanceof A) //true
+console.log(a instanceof B) //false
+console.log(b instanceof A) //true
+console.log(b instanceof B) //true
 
-class Car extends Bicycle {
-    constructor(license, price, acceleration) {
-        super(price, acceleration)
-        this.license = license
-        this.wheel =4
-    }
+console.log(c.constructor === A) // false
+console.log(c.constructor === B) // false
+console.log(c.constructor === C) //true
 
-    //오버라이딩
-    acceleration() {
-        if(!this.license) {
-            console.error('무면허!')
+// const fruits = ['apple', 'banana']
+const fruits = new Array('apple', 'banana')
 
-            return
-        }
-        this.speed += this.acceleration
-        console.log('가속!', this.speed)
-    }
-}
-
-const carA = new Car(true, 7000, 10)
-const carB = new Car(false, 4000, 6)
-
-console.log(carA)
-console.log(carB)
-
-
-class Boat extends Vehicle {
-    constructor(price, acceleration) {
-        super(acceleration)
-        this.price = price
-        this.moter = 1
-    }
-}
-
-const boat = new Boat(10000, 5)
+console.log(fruits.constructor === Array)
