@@ -159,28 +159,189 @@
 
 
 /**즉시 실행함수 (IIFE , Immediately-Involked Function Expression) */
-//ex
-const a = 7
+// //ex
+// const a = 7
 
-const double = () => {
-    console.log(a*2)
+// const double = () => {
+//     console.log(a*2)
+// }
+
+// double();
+
+// //즉시 실행함수
+// ;(() => {
+//     console.log(a*2)
+// })()
+
+// ;(() => {})() //(F)() 화살표함면 패턴 1개
+// ;(function() {})() //(F)()
+// ;(function(){}()) //(F()) 
+// ;!function(){}() // !F()
+// ;+function(){}() // +F()
+
+
+// ;((a,b) => {
+//     console.log(a)
+//     console.log(b)
+// })(1,2) // 매게변수로 쓸 수 있다..!!
+
+
+
+// // 콜백(Callback)
+
+// const a = (callback) => {
+//   //callback = 매게변수
+//   console.log("A");
+//   callback();
+// };
+
+// const b = () => {
+//   console.log("B");
+// };
+
+// a(b); // b= 콜백
+// //콜백 : 함수가 들어갈때 인수로 들어가는 또하나의 함수
+
+// const sum = (a, b, c) => {
+//   setTimeout(() => {
+//     c(a + b);
+//   }, 1000); //() => {} 콜백함수 setTimeout의 인수
+// };
+
+// sum(1, 2, value => {
+//     console.log(value)
+// });
+
+// const loadImage = (url, cb) => {
+//     const imgEl = document.createElement('img')
+//     imgEl.src = url
+//     imgEl.addEventListener('load', () => {
+//         setTimeout(()=> {
+//             cb(imgEl)
+//         }, 1000)
+//     })
+// }
+
+// const containerEl = document.querySelector('.container')
+// loadImage('http://www.gstatic.com/webp/gallery/4.png', (imgEl) => {
+//     containerEl.innerHTML = ''
+//     containerEl.append(imgEl)
+// })
+
+// //재귀 (Recursive)
+// let i =0
+
+// const a = () => {
+//     console.log('A')
+//     i += 1
+//     if(i <4) {
+//         a()
+//     }//함수안에서 같은 함수를 호출
+// }
+
+// a() // 'A'가 4번 호출
+
+// const userA = { name: 'A' , parent: null}
+// const userB = { name: 'B' , parent: userA}
+// const userC = { name: 'C' , parent: userB}
+// const userD = { name: 'D' , parent: userC}
+
+// const getRootUser = user => {
+//     if(user.parent) {
+//         return getRootUser(user.parent)
+//     }
+
+//     return user
+// }
+
+// console.log(getRootUser(userD))
+
+/**호출 스케쥴링 (Scheduling a function call) */
+
+// setTimeout(() => {
+//     console.log('Hello')
+// }, 2000)
+
+// setInterval(() => {}, )
+
+/** this */
+// 일반 함수에서 This는 호출 위치에서 정의
+// 화살표 함수의 THIS는 자신이 선언된 함수 범위에서 정의
+
+// const user = {
+//   firstName: "Jena",
+//   lastName: "Ryuh",
+//   age: "20",
+// //1.   getFullName: function () {
+// //     this.firstName;
+// //     this.lastName;
+
+// //     return `${this.firstName} ${this.lastName}`; //  user를 바라봄
+// //   },
+//   getFullName: () => {
+//     return `${this.firstName} ${this.lastName}` // 감싸고있는 함수가 없음
+//   }
+// };
+
+// // 1. console.log(user.getFullName()); // Jena Ryuh
+// console.log(user.getFullName()); // undefined
+
+// const timer = {
+//   title: "TIMER!",
+//   timeout() {
+//     console.log(this.title);
+//     setTimeout(function() {
+//         console.log(this.title) // this = setTimeout의 미지의 객체
+//     }, 1000)
+//   },
+// };
+
+// timer.timeout()
+
+
+/**prototype */
+
+
+// const fruits = ['Apple', 'Banana', 'Cherry'] // 배열 리터럴
+// const fruits = new Array('Apple', 'Banana', 'Cherry')
+
+// console.log(fruits.length)
+// console.log(fruits.includes('Banana')) // includes, length 같은 것을 프로포타입 속성이라고한다
+
+
+// Array.prototype.heropy = function() {
+//     console.log(this)
+// }
+
+// fruits.heropy() // 인위적으로 만들수잇다 
+
+// ----> ES6에선 class방식
+
+
+/**ES6 class 방식 */
+// function User(fisrt, last) {
+//     this.firstName = fisrt
+//     this.lastName = last
+// }
+// User.prototype.gerFullName = function () {
+//     return `${this.firstName} +${this.lastName}`
+// }
+
+class User {
+    constructor(first, last) {
+        this.firstName = first
+        this.lastName = last
+    }
+
+    getFullName() {
+        return `${this.firstName} +${this.lastName}`
+    }
 }
 
-double();
+const heropy = new User('Heropy', 'Park')
+const neo = new User('Neo', 'Anderson')
 
-//즉시 실행함수
-;(() => {
-    console.log(a*2)
-})()
-
-;(() => {})() //(F)() 화살표함면 패턴 1개
-;(function() {})() //(F)()
-;(function(){}()) //(F()) 
-;!function(){}() // !F()
-;+function(){}() // +F()
+console.log(heropy.getFullName())
+console.log(neo.getFullName())
 
 
-;((a,b) => {
-    console.log(a)
-    console.log(b)
-})(1,2) // 매게변수로 쓸 수 있다..!!
