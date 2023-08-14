@@ -327,32 +327,120 @@
 //     return `${this.firstName} +${this.lastName}`
 // }
 
-class User {
-    constructor(first, last) {
-        this.firstName = first
-        this.lastName = last
+// class User {
+//     constructor(first, last) {
+//         this.firstName = first
+//         this.lastName = last
+//     }
+
+//     get fullName() { //get 은 값을 얻어내는 메소드 (Getter) 메소드를 속성처럼 사용할 수 있다.
+//         return `${this.firstName} +${this.lastName}`
+//     }
+
+//     set fullName(value) { //값을 지정할떄
+//         [this.firstName, this.lastName] = value.split(' ') //배열구조분해할당
+//     }
+
+//     //속성처럼 값을 조회할땐 get메소드가 실행
+//     //할당연산자를 통해 데이터를 할당하게되면 set 메소드가 실행 
+
+//     // getFullName() {
+//     //     return `${this.firstName} +${this.lastName}`
+//     // }
+// }
+
+// const heropy = new User('Heropy', 'Park') // 생성자함수
+// // const neo = new User('Neo', 'Anderson')
+
+// // console.log(heropy.getFullName())
+// // console.log(neo.getFullName())
+
+
+
+ 
+/**정적 메소드 */
+
+// static : class에서만 사용가능 인스턴스없이 바로 호출 가능
+
+
+
+
+
+/**상속(Inheritance) */
+
+//운송수단
+class Vehicle {
+    constructor(acceleration = 1) {
+        this.speed = 0
+        this.acceleration = acceleration
     }
 
-    get fullName() { //get 은 값을 얻어내는 메소드 (Getter) 메소드를 속성처럼 사용할 수 있다.
-        return `${this.firstName} +${this.lastName}`
+    accelerate() {
+        this.speed += this.acceleration
     }
 
-    set fullName(value) { //값을 지정할떄
-        [this.firstName, this.lastName] = value.split(' ') //배열구조분해할당
+    decelerate() {
+        if(this.speed <= 0) {
+            console.log('정지!')
+
+            return
+        }
+        this.speed -= this.accelerate
     }
-
-    //속성처럼 값을 조회할땐 get메소드가 실행
-    //할당연산자를 통해 데이터를 할당하게되면 set 메소드가 실행 
-
-    // getFullName() {
-    //     return `${this.firstName} +${this.lastName}`
-    // }
 }
 
-const heropy = new User('Heropy', 'Park') // 생성자함수
-// const neo = new User('Neo', 'Anderson')
 
-// console.log(heropy.getFullName())
-// console.log(neo.getFullName())
+//자전거
+class Bicycle extends Vehicle {
+    constructor(price = 100 , acceleration) {
+        super(acceleration)
+        this.price = price
+        this.wheel = 2
+    }
+}
+
+const bicycle = new Bicycle(300, 2) // bicycle : 인스턴스
+bicycle.accelerate()
+console.log(bicycle)
+console.log(bicycle instanceof Bicycle) //true
+console.log(bicycle instanceof Vehicle) //true
+//instanceof 는 어느쪽에서 상속됐는지 확인c
 
 
+//자동차
+
+class Car extends Bicycle {
+    constructor(license, price, acceleration) {
+        super(price, acceleration)
+        this.license = license
+        this.wheel =4
+    }
+
+    //오버라이딩
+    acceleration() {
+        if(!this.license) {
+            console.error('무면허!')
+
+            return
+        }
+        this.speed += this.acceleration
+        console.log('가속!', this.speed)
+    }
+}
+
+const carA = new Car(true, 7000, 10)
+const carB = new Car(false, 4000, 6)
+
+console.log(carA)
+console.log(carB)
+
+
+class Boat extends Vehicle {
+    constructor(price, acceleration) {
+        super(acceleration)
+        this.price = price
+        this.moter = 1
+    }
+}
+
+const boat = new Boat(10000, 5)
