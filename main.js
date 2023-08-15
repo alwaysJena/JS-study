@@ -518,3 +518,49 @@ console.log(str1.padEnd(10, '0')) //1234567000 기존 str1은 훼손되지 않�
 //대상 문자의 길이(length)가 지정된 길이가 작으면,
 //주어진 문자를 지정된 길이까지 앞에 붙여 새로운 문자를 반환합니다.
 console.log(str1.padStart(10, '0')) //0001234567
+
+//replace()
+//대상 문자에서 패턴(문자, 정규식)과 일치하는 부분을 교체한 새로운 문자를 반환
+const str2 = 'Hello, Hello?!'
+
+console.log(str.replace('Hello', 'Hi')) // Hi, Hello?!
+console.log(str.replace(/Hello/g, 'Hi')) //HI, Hi? -> g: global의 약자로 전체를 찾을 때 씀
+console.log(str) // Hello, Hello ?1 ->원본의 데이터 손상x
+
+//slice()
+//대상 문자의 일부를 추출해 새로운 문자를 반환합니다.
+//두 번째 인수 직전까지 추출하고, 두 번째 인수를 생략하면 대상 문자의 끝까지 추출합니다.
+const str3 = 'Hello world!'
+
+console.log(str.slice(0,5)) //5의 직전 o<까지
+console.log(str.slice(6,-1)) // world : -1 -> 뒤에서부터 센다는뜻 6번째 문자부터 뒤에서1번째까지(!제거됨)
+console.log(str.slice(6))// world! 
+console.log(str) //원본 훼손x
+
+//.split()
+//대상문자를 주어진 구분자로 나눠 배열로 반환합니다.
+
+const str4 = 'Apple, Banana, Cherry'
+
+console.log(str.split(', ')) //['Apple', 'Cheery', 'Banana']
+console.log(str.split(',')) //쉼표 없으면 ' CHeery', ' Banana' 이렇게 된다
+console.log(str.split('')) //문자별로 배열로 반환
+console.log(str.split('')).reverse().join('') //reverse() 뒤집음(배열메소드), join() : 한문자로 붙여줌(배열메소드)
+
+//.toLowerCase()
+//대상 문자를 영어 소문자로 변환해 새로운 문자로 반환
+
+console.log(str.toLowerCase()) // apple, banana, cherry
+console.log(str) //원본데이터 손상x
+
+//.toUpperCase()
+//대상 문자를 영어 대문자로 변환해 새로운 문자로 반환
+console.log(str.toUpperCase())
+
+//.trim()
+//대상 문자의 앞뒤 공백 문자(space,tab)등을 제거한 새로운 문자를 변환합니다. 
+//중간의 공백은 인정하지않는다.
+const str5 = '    J ena'
+
+console.log(str.trim()) //'J ena'
+console.log(str) //원본 훼손 x
