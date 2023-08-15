@@ -445,38 +445,76 @@
 
 // const boat = new Boat(10000, 5)
 
-class A {
-    constructor() {}
+// class A {
+//     constructor() {}
+// }
+
+// class B extends A {
+//     constructor() {
+//         super() //상속받을땐 필수
+//     }
+// }
+
+// class C extends B {
+//     constructor() {
+//         super()
+//     }
+// }
+
+
+// const a = new A() //A : 생성자함수, a : 인스턴스
+// const b = new B() 
+// const c = new C()
+
+
+// console.log(a instanceof A) //true
+// console.log(a instanceof B) //false
+// console.log(b instanceof A) //true
+// console.log(b instanceof B) //true
+
+// console.log(c.constructor === A) // false
+// console.log(c.constructor === B) // false
+// console.log(c.constructor === C) //true
+
+// // const fruits = ['apple', 'banana']
+// const fruits = new Array('apple', 'banana')
+
+// console.log(fruits.constructor === Array)
+
+
+
+
+/**문자 */
+//length속성
+const str = 'Hello world!'
+
+console.log(str.length)
+
+//includes()
+console.log(str.includes('Hello')) //true (대소문자 구별)
+console.log(str.includes('hello')) //false 
+console.log(str.includes('hello', 1)) //false -> e부터 본다.
+
+//indexOf() 
+//대상 문자에서 주어진 문자와 일치하는 첫 번째 인덱스(숫자)를 반환합니다.
+//일치하는 문자가 없으면 '-1'을 반환합니다.
+console.log(str.indexOf('world')) //6
+console.log(str.indexOf('Heropy')) //-1 -> 
+
+if(str.indexOf('Heropy') === -1 ){
+    console.log('해당 문자가 없습니다') //출력
 }
 
-class B extends A {
-    constructor() {
-        super() //상속받을땐 필수
-    }
-}
+//padEnd()
+//대상 문자의 길이(length)가 지정된 길이보다 적으면,
+//주어진 문자를 지정된 길이까지 끝에 붙여 새로운 문자를 반환합니다.
+//길이가 크면 원본문자를 그대로 출력
 
-class C extends B {
-    constructor() {
-        super()
-    }
-}
+const str1 = '1234567'
 
+console.log(str1.padEnd(10, '0')) //1234567000 기존 str1은 훼손되지 않는다.
 
-const a = new A() //A : 생성자함수, a : 인스턴스
-const b = new B() 
-const c = new C()
-
-
-console.log(a instanceof A) //true
-console.log(a instanceof B) //false
-console.log(b instanceof A) //true
-console.log(b instanceof B) //true
-
-console.log(c.constructor === A) // false
-console.log(c.constructor === B) // false
-console.log(c.constructor === C) //true
-
-// const fruits = ['apple', 'banana']
-const fruits = new Array('apple', 'banana')
-
-console.log(fruits.constructor === Array)
+//padStart()
+//대상 문자의 길이(length)가 지정된 길이가 작으면,
+//주어진 문자를 지정된 길이까지 앞에 붙여 새로운 문자를 반환합니다.
+console.log(str1.padStart(10, '0')) //0001234567
