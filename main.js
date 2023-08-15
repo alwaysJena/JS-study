@@ -486,81 +486,128 @@
 
 /**문자 */
 //length속성
-const str = 'Hello world!'
+// const str = 'Hello world!'
 
-console.log(str.length)
+// console.log(str.length)
 
-//includes()
-console.log(str.includes('Hello')) //true (대소문자 구별)
-console.log(str.includes('hello')) //false 
-console.log(str.includes('hello', 1)) //false -> e부터 본다.
+// //includes()
+// console.log(str.includes('Hello')) //true (대소문자 구별)
+// console.log(str.includes('hello')) //false 
+// console.log(str.includes('hello', 1)) //false -> e부터 본다.
 
-//indexOf() 
-//대상 문자에서 주어진 문자와 일치하는 첫 번째 인덱스(숫자)를 반환합니다.
-//일치하는 문자가 없으면 '-1'을 반환합니다.
-console.log(str.indexOf('world')) //6
-console.log(str.indexOf('Heropy')) //-1 -> 
+// //indexOf() 
+// //대상 문자에서 주어진 문자와 일치하는 첫 번째 인덱스(숫자)를 반환합니다.
+// //일치하는 문자가 없으면 '-1'을 반환합니다.
+// console.log(str.indexOf('world')) //6
+// console.log(str.indexOf('Heropy')) //-1 -> 
 
-if(str.indexOf('Heropy') === -1 ){
-    console.log('해당 문자가 없습니다') //출력
-}
+// if(str.indexOf('Heropy') === -1 ){
+//     console.log('해당 문자가 없습니다') //출력
+// }
 
-//padEnd()
-//대상 문자의 길이(length)가 지정된 길이보다 적으면,
-//주어진 문자를 지정된 길이까지 끝에 붙여 새로운 문자를 반환합니다.
-//길이가 크면 원본문자를 그대로 출력
+// //padEnd()
+// //대상 문자의 길이(length)가 지정된 길이보다 적으면,
+// //주어진 문자를 지정된 길이까지 끝에 붙여 새로운 문자를 반환합니다.
+// //길이가 크면 원본문자를 그대로 출력
 
-const str1 = '1234567'
+// const str1 = '1234567'
 
-console.log(str1.padEnd(10, '0')) //1234567000 기존 str1은 훼손되지 않는다.
+// console.log(str1.padEnd(10, '0')) //1234567000 기존 str1은 훼손되지 않는다.
 
-//padStart()
-//대상 문자의 길이(length)가 지정된 길이가 작으면,
-//주어진 문자를 지정된 길이까지 앞에 붙여 새로운 문자를 반환합니다.
-console.log(str1.padStart(10, '0')) //0001234567
+// //padStart()
+// //대상 문자의 길이(length)가 지정된 길이가 작으면,
+// //주어진 문자를 지정된 길이까지 앞에 붙여 새로운 문자를 반환합니다.
+// console.log(str1.padStart(10, '0')) //0001234567
 
-//replace()
-//대상 문자에서 패턴(문자, 정규식)과 일치하는 부분을 교체한 새로운 문자를 반환
-const str2 = 'Hello, Hello?!'
+// //replace()
+// //대상 문자에서 패턴(문자, 정규식)과 일치하는 부분을 교체한 새로운 문자를 반환
+// const str2 = 'Hello, Hello?!'
 
-console.log(str.replace('Hello', 'Hi')) // Hi, Hello?!
-console.log(str.replace(/Hello/g, 'Hi')) //HI, Hi? -> g: global의 약자로 전체를 찾을 때 씀
-console.log(str) // Hello, Hello ?1 ->원본의 데이터 손상x
+// console.log(str.replace('Hello', 'Hi')) // Hi, Hello?!
+// console.log(str.replace(/Hello/g, 'Hi')) //HI, Hi? -> g: global의 약자로 전체를 찾을 때 씀
+// console.log(str) // Hello, Hello ?1 ->원본의 데이터 손상x
 
-//slice()
-//대상 문자의 일부를 추출해 새로운 문자를 반환합니다.
-//두 번째 인수 직전까지 추출하고, 두 번째 인수를 생략하면 대상 문자의 끝까지 추출합니다.
-const str3 = 'Hello world!'
+// //slice()
+// //대상 문자의 일부를 추출해 새로운 문자를 반환합니다.
+// //두 번째 인수 직전까지 추출하고, 두 번째 인수를 생략하면 대상 문자의 끝까지 추출합니다.
+// const str3 = 'Hello world!'
 
-console.log(str.slice(0,5)) //5의 직전 o<까지
-console.log(str.slice(6,-1)) // world : -1 -> 뒤에서부터 센다는뜻 6번째 문자부터 뒤에서1번째까지(!제거됨)
-console.log(str.slice(6))// world! 
-console.log(str) //원본 훼손x
+// console.log(str.slice(0,5)) //5의 직전 o<까지
+// console.log(str.slice(6,-1)) // world : -1 -> 뒤에서부터 센다는뜻 6번째 문자부터 뒤에서1번째까지(!제거됨)
+// console.log(str.slice(6))// world! 
+// console.log(str) //원본 훼손x
 
-//.split()
-//대상문자를 주어진 구분자로 나눠 배열로 반환합니다.
+// //.split()
+// //대상문자를 주어진 구분자로 나눠 배열로 반환합니다.
 
-const str4 = 'Apple, Banana, Cherry'
+// const str4 = 'Apple, Banana, Cherry'
 
-console.log(str.split(', ')) //['Apple', 'Cheery', 'Banana']
-console.log(str.split(',')) //쉼표 없으면 ' CHeery', ' Banana' 이렇게 된다
-console.log(str.split('')) //문자별로 배열로 반환
-console.log(str.split('')).reverse().join('') //reverse() 뒤집음(배열메소드), join() : 한문자로 붙여줌(배열메소드)
+// console.log(str.split(', ')) //['Apple', 'Cheery', 'Banana']
+// console.log(str.split(',')) //쉼표 없으면 ' CHeery', ' Banana' 이렇게 된다
+// console.log(str.split('')) //문자별로 배열로 반환
+// console.log(str.split('')).reverse().join('') //reverse() 뒤집음(배열메소드), join() : 한문자로 붙여줌(배열메소드)
 
-//.toLowerCase()
-//대상 문자를 영어 소문자로 변환해 새로운 문자로 반환
+// //.toLowerCase()
+// //대상 문자를 영어 소문자로 변환해 새로운 문자로 반환
 
-console.log(str.toLowerCase()) // apple, banana, cherry
-console.log(str) //원본데이터 손상x
+// console.log(str.toLowerCase()) // apple, banana, cherry
+// console.log(str) //원본데이터 손상x
 
-//.toUpperCase()
-//대상 문자를 영어 대문자로 변환해 새로운 문자로 반환
-console.log(str.toUpperCase())
+// //.toUpperCase()
+// //대상 문자를 영어 대문자로 변환해 새로운 문자로 반환
+// console.log(str.toUpperCase())
 
-//.trim()
-//대상 문자의 앞뒤 공백 문자(space,tab)등을 제거한 새로운 문자를 변환합니다. 
-//중간의 공백은 인정하지않는다.
-const str5 = '    J ena'
+// //.trim()
+// //대상 문자의 앞뒤 공백 문자(space,tab)등을 제거한 새로운 문자를 변환합니다. 
+// //중간의 공백은 인정하지않는다.
+// const str5 = '    J ena'
 
-console.log(str.trim()) //'J ena'
-console.log(str) //원본 훼손 x
+// console.log(str.trim()) //'J ena'
+// console.log(str) //원본 훼손 x
+
+
+
+
+
+
+/* 숫자 객체*/
+//.toFixed()
+//숫자를 지정된 고정 소수점표기(자릿점)까지 표현하는 문자로 변환합니다,
+
+const num = 3.1415926535
+
+console.log(num.toFixed(2)) // '3.14' (문자임!!!!!)
+console.log(parseFloat(num.toFixed(2)))// 3.14 숫자데이터
+
+//toLocaleString()
+//숫자를 현지 언어 형식의 문자로 변환합니다.
+const num1= 1000000
+
+console.log(num.toLocaleString()) // 1,000,000
+console.log(`${num.toLocaleString()}`+'원!')
+
+//Number.isInteger() 클래스에 바로 사용할수 있는 정적메소드
+//숫자가 정수(integer)인지 확인합니다.
+const num2 = 123
+const pi = 3.14
+console.log(Number.isInteger(num)) //true
+console.log(Number.isInteger(pi)) //false
+
+//Number.inNaN()
+//주어진 값이 'NaN'인지 확인한다.
+console.log(Number.isNaN(pi)) //false
+
+//Number.parseInt() or parseInt() : 전역함수로 사용가능
+//주어진 값(숫자,문자)를 파싱해 특정 진수(radix)의 정수로 변환;
+const str1 = '3.141592'
+const num3 = 3.141592
+
+console.log(Number.parseInt(str,10)) //3 정수로 만듬;
+console.log(Number.parseInt(num, 10)) //3 정수로 만듦;
+console.log(parseInt(str1, 10)) //3 정수 Number 가능
+
+//Number.parseFloat() or parseFloat()
+//주어진 값을 부동소수점 실수로 변환(숫자)합니다.
+console.log(Number.parseFloat(str))
+console.log(Number.parseFloat(num)) 
+console.log(parseFloa(num)) //숫
