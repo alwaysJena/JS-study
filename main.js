@@ -574,40 +574,89 @@
 //.toFixed()
 //숫자를 지정된 고정 소수점표기(자릿점)까지 표현하는 문자로 변환합니다,
 
-const num = 3.1415926535
+// const num = 3.1415926535
 
-console.log(num.toFixed(2)) // '3.14' (문자임!!!!!)
-console.log(parseFloat(num.toFixed(2)))// 3.14 숫자데이터
+// console.log(num.toFixed(2)) // '3.14' (문자임!!!!!)
+// console.log(parseFloat(num.toFixed(2)))// 3.14 숫자데이터
 
-//toLocaleString()
-//숫자를 현지 언어 형식의 문자로 변환합니다.
-const num1= 1000000
+// //toLocaleString()
+// //숫자를 현지 언어 형식의 문자로 변환합니다.
+// const num1= 1000000
 
-console.log(num.toLocaleString()) // 1,000,000
-console.log(`${num.toLocaleString()}`+'원!')
+// console.log(num.toLocaleString()) // 1,000,000
+// console.log(`${num.toLocaleString()}`+'원!')
 
-//Number.isInteger() 클래스에 바로 사용할수 있는 정적메소드
-//숫자가 정수(integer)인지 확인합니다.
-const num2 = 123
-const pi = 3.14
-console.log(Number.isInteger(num)) //true
-console.log(Number.isInteger(pi)) //false
+// //Number.isInteger() 클래스에 바로 사용할수 있는 정적메소드
+// //숫자가 정수(integer)인지 확인합니다.
+// const num2 = 123
+// const pi = 3.14
+// console.log(Number.isInteger(num)) //true
+// console.log(Number.isInteger(pi)) //false
 
-//Number.inNaN()
-//주어진 값이 'NaN'인지 확인한다.
-console.log(Number.isNaN(pi)) //false
+// //Number.inNaN()
+// //주어진 값이 'NaN'인지 확인한다.
+// console.log(Number.isNaN(pi)) //false
 
-//Number.parseInt() or parseInt() : 전역함수로 사용가능
-//주어진 값(숫자,문자)를 파싱해 특정 진수(radix)의 정수로 변환;
-const str1 = '3.141592'
-const num3 = 3.141592
+// //Number.parseInt() or parseInt() : 전역함수로 사용가능
+// //주어진 값(숫자,문자)를 파싱해 특정 진수(radix)의 정수로 변환;
+// const str1 = '3.141592'
+// const num3 = 3.141592
 
-console.log(Number.parseInt(str,10)) //3 정수로 만듬;
-console.log(Number.parseInt(num, 10)) //3 정수로 만듦;
-console.log(parseInt(str1, 10)) //3 정수 Number 가능
+// console.log(Number.parseInt(str,10)) //3 정수로 만듬;
+// console.log(Number.parseInt(num, 10)) //3 정수로 만듦;
+// console.log(parseInt(str1, 10)) //3 정수 Number 가능
 
-//Number.parseFloat() or parseFloat()
-//주어진 값을 부동소수점 실수로 변환(숫자)합니다.
-console.log(Number.parseFloat(str))
-console.log(Number.parseFloat(num)) 
-console.log(parseFloa(num)) //숫
+// //Number.parseFloat() or parseFloat()
+// //주어진 값을 부동소수점 실수로 변환(숫자)합니다.
+// console.log(Number.parseFloat(str))
+// console.log(Number.parseFloat(num)) 
+// console.log(parseFloa(num)) //숫
+
+
+
+/**Math */
+//Math.abs()
+//주어진 숫자의 절대값을 변환합니다.
+console.log(Math.abs(2))
+console.log(Math.abs(-2)) //2
+
+//.ceil()
+//주어진 숫자를 올림해 정수를 반환합니다.
+console.log(Math.ceil(3.14)) //4
+
+//.floar()
+//주어진 숫자를 내림처리해 정수를 반환합니다.
+console.log(Math.floor(3.14)) //3
+
+//.max()
+//주어진 숫자들 중 가장 큰 숫자를 반환합니다.
+console.log(Math.max(1,22,34,56)) //56
+
+//.min()
+//주어진 숫자들 중 가장 작은 숫자를 반환합니다.
+console.log(Math.min(1,33,45,6,11,-5)) //-5
+
+//.pow()
+//주어진 숫자의 거듭제곱한 값을 반환합니다.
+console.log(Math.pow(4,2)) //4의 2제곱
+
+//.random()
+//숫자 0이상 1미만의 난수를 반환합니다.
+console.log(Math.random()) //0.14121331231~~
+
+//특정 범위의 랜덤 정수를 얻는 함수
+function random(min =0, max= 10) {
+    return Math.floor(Math.random()*(max-min) + min)
+}
+
+console.log(random()) // 0~10 사이의 랜덤한 숫자
+console.log(random(11,20)) //11~20사이의 랜덤한 숫자
+
+//Math.round()
+//주어진 숫자를 반올림해 정수를 반환합니다.
+
+const num4 = 3.14
+const num5 = 3.71
+
+console.log(Math.round(num4)) //3
+console.log(Math.round(num5)) //4
