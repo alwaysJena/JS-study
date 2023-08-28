@@ -142,3 +142,35 @@ console.log(el.className) // child
 el.className += ' child1 active'
 console.log(el.className) //child child1 active
 console.log(el) // <div className="child child1 active"></div>
+//E.classList 를 더  많이씀
+
+//E.style
+//점 표기법으로 제어가능 (객체라는 뜻)
+//한번에 지정할 경우엔? .assign(대상객체, 출처객체)
+Object.assign(el.style, {
+    width : '100px',
+    fontSize: '20px',
+})
+
+
+//Window.getComputedStyle()
+//요소에 실제로 적용된 스타일 객체를 반환합니다.
+
+const el = document.querySelector('.child')
+const styles = window.getComputedStyle(el)
+
+console.log(styles.width)
+console.log(styles.fontSize)
+
+
+//E.getAttribute() E.setAttribute()
+//요소에서 특정 속성 값을 얻거나 지정.
+//속성 : html - attribute
+//속성 : css, js - property
+
+el.setAttribvute('title', 'hello world') // (속성, 지정될 값)
+console.log(el.getAttribute('title')) //hello world
+
+
+//E.hasAttribute() : 가지고있는지 확인, E.removeAttribute():제거
+
