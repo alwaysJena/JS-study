@@ -174,3 +174,8 @@ console.log(el.getAttribute('title')) //hello world
 
 //E.hasAttribute() : 가지고있는지 확인, E.removeAttribute():제거
 
+
+
+
+//window.innerWidth, window.innerHeight
+//현재 화면(Viewport)의 크기를 얻습니다.
