@@ -179,3 +179,5 @@ console.log(el.getAttribute('title')) //hello world
 
 //window.innerWidth, window.innerHeight
 //현재 화면(Viewport)의 크기를 얻습니다.
+
+//마지막
