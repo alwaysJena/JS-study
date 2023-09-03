@@ -100,6 +100,7 @@ console.log(user.includes({ name: 'Neo', age:85})) //false
 const neo = users[0]
 console.log(user.includes(neo)) //메모리의 주소를 비교하게돼서 true //원시형, 참조형(객체,배열,함수 : 모양이 똑같아도 다른데이터로 취급할 수 있다)
 
+
 //.join() 
 //대상 배열의 모든 요소를 구분자로 연결한 문자를 반환합니다.
 
@@ -107,6 +108,7 @@ console.log(arr.join(',')) // apple,banana,cherry
 console.log(arr.join(', ')) // apple, banana, cheery
 console.log(arr.join('/')) //apple/banana/cherry
 console.log(arr.join(' / ')) // apple / banana / cherry
+
 
 //.map()
 //대상 배열의 길이만큼 주어진 콜백을 실행하고, 콜백의 반환 값을 모아 새로운 배열을 반환합니다.
