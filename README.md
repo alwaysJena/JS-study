@@ -1,3 +1,3 @@
 # JS-study
 javascript study
-(node 부분 좀더)
+약 한달 반
