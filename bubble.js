@@ -14,7 +14,7 @@ document.body.addEventListener('click', event => {
 
 parentEl.addEventListener('click', event => {
     console.log('Parent!')
-    event.stopPropagation() // 버블링 정지!
+    // event.stopPropagation() // 버블링 정지!
 })
 
 childEl.addEventListener('click', event => {
@@ -24,3 +24,5 @@ childEl.addEventListener('click', event => {
 anchorEl.addEventListener('click', event => {
     console.log('Anchor!')
 })
+
+// anchor -> child -> parent -> body -> window 순으로 출력되는데 이것을 버블링이라한다!
