@@ -16,7 +16,7 @@ const wrap = async () => {
     console.log("아바타!");
   };
   
-  //Resolve, Reject 그리고 에러 핸들링
+//Resolve, Reject 그리고 에러 핸들링
   
   const delayAdd = (index) => {
     return new Promise((resolve, reject) => {
