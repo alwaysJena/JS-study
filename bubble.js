@@ -29,7 +29,6 @@ anchorEl.addEventListener('click', event => {
 // (전체)anchor -> child -> parent -> body -> window 순으로 출력되는데 이것을 버블링이라한다!
 // (1)anchor -> child -> parent 
 // (2)anchor -> child
-// (3)
 
 const handler = () => {
     console.log('Parent!')
